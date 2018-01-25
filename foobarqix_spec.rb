@@ -43,7 +43,7 @@ RSpec.describe FooBarQix do
       let(:digit) { 10 }
 
       it 'returns Bar' do
-        expect(subject).to eql('Bar')
+        expect(subject).to eql('Bar*')
       end
     end
 
@@ -107,6 +107,14 @@ RSpec.describe FooBarQix do
 
       it 'returns Qix' do
         expect(subject).to eql('QixQixQix')
+      end
+    end
+
+    context 'when it gets a number with zeros' do
+      let(:digit) { 100 }
+
+      it 'returns Bar**' do
+        expect(subject).to eql('Bar**')
       end
     end
   end

@@ -40,7 +40,7 @@ class FooBarQix
   end
 
   def calculate
-    multiplied + includes
+    multiplied + includes + the_result('0','*')
   end
 
   def multiplied
