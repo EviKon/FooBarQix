@@ -85,5 +85,29 @@ RSpec.describe FooBarQix do
         expect(subject).to eql('Qix')
       end
     end
+
+    context 'when it gets a number which contains 3 and its dived by 3' do
+      let(:digit) { 33 }
+
+      it 'returns Qix' do
+        expect(subject).to eql('FooFooFoo')
+      end
+    end
+
+    context 'when it gets a number which contains 5 and its dived by 5' do
+      let(:digit) { 55 }
+
+      it 'returns Qix' do
+        expect(subject).to eql('BarBarBar')
+      end
+    end
+
+    context 'when it gets a number which contains 7 and its dived by 7' do
+      let(:digit) { 77 }
+
+      it 'returns Qix' do
+        expect(subject).to eql('QixQixQix')
+      end
+    end
   end
 end

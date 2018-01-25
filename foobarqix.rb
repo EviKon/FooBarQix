@@ -13,17 +13,19 @@ class FooBarQix
     end
   end
 
+  private
+
   def calculate
     multiple_by_3 + multiple_by_5 + multiple_by_7 + include_3 + include_5 + include_7
   end
 
   def include_3
     if digit.to_s.include?('3')
-      digit.to_s.split('').inject(0) do |res, x|
+      digit.to_s.split('').inject('') do |res, x|
         if x == '3'
-          'Foo'
+          res = res + 'Foo'
         else
-          ''
+          res = res + ''
         end
       end
     else
@@ -33,11 +35,11 @@ class FooBarQix
 
   def include_5
     if digit.to_s.include?('5')
-      digit.to_s.split('').inject(0) do |res, x|
+      digit.to_s.split('').inject('') do |res, x|
         if x == '5'
-          'Bar'
+          res = res + 'Bar'
         else
-          ''
+          res = res + ''
         end
       end
     else
@@ -47,11 +49,11 @@ class FooBarQix
 
   def include_7
     if digit.to_s.include?('7')
-      digit.to_s.split('').inject(0) do |res, x|
+      digit.to_s.split('').inject('') do |res, x|
         if x == '7'
-          'Qix'
+          res = res + 'Qix'
         else
-          ''
+          res = res + ''
         end
       end
     else
