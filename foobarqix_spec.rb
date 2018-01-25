@@ -11,5 +11,21 @@ RSpec.describe FooBarQix do
         expect(subject).to eql(1)
       end
     end
+
+    context 'when it gets 3' do
+      subject { instance.calculator(3) }
+
+      it 'returns Foo' do
+        expect(subject).to eql('Foo')
+      end
+    end
+
+    context 'when it gets a multiple of 3' do
+      subject { instance.calculator(6) }
+
+      it 'returns Foo' do
+        expect(subject).to eql('Foo')
+      end
+    end
   end
 end
