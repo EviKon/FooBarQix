@@ -4,6 +4,8 @@ class FooBarQix
       'Foo'
     elsif digit % 5 == 0
       'Bar'
+    elsif digit % 7 == 0
+      'Qix'
     else
       digit
     end
