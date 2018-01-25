@@ -20,20 +20,29 @@ class FooBarQix
   end
 
   def can_calculate?
-    digit % 3 == 0 || string_digit.include?('3') ||
-    string_digit.include?('5') || string_digit.include?('7') ||
-    digit % 5 == 0 || digit % 7 == 0
+    multiple?(3) || include_number?('3') ||
+    include_number?('5') || include_number?('7') ||
+    multiple?(5) || multiple?(7)
+  end
+
+  def multiple?(number)
+    digit % number == 0
+  end
+
+  def include_number?(number)
+    string_digit.include?(number)
   end
 
   def calculate
-    multiple_by_3 + multiple_by_5 + multiple_by_7 + include_3 + include_5 + include_7
+    multiple_by_(3,'Foo') + multiple_by_(5,'Bar') + multiple_by_(7,'Qix') +
+    include_('3','Foo') + include_('5', 'Bar') + include_('7', 'Qix')
   end
 
-  def include_3
-    if string_digit.include?('3')
+  def include_(number, string)
+    if string_digit.include?(number)
       string_digit.split('').inject('') do |res, x|
-        if x == '3'
-          res = res + 'Foo'
+        if x == number
+          res = res + string
         else
           res = res + ''
         end
@@ -43,53 +52,9 @@ class FooBarQix
     end
   end
 
-  def include_5
-    if string_digit.include?('5')
-      string_digit.split('').inject('') do |res, x|
-        if x == '5'
-          res = res + 'Bar'
-        else
-          res = res + ''
-        end
-      end
-    else
-      ''
-    end
-  end
-
-  def include_7
-    if string_digit.include?('7')
-      string_digit.split('').inject('') do |res, x|
-        if x == '7'
-          res = res + 'Qix'
-        else
-          res = res + ''
-        end
-      end
-    else
-      ''
-    end
-  end
-
-  def multiple_by_3
-    if digit % 3 == 0
-      'Foo'
-    else
-      ''
-    end
-  end
-
-  def multiple_by_5
-    if digit % 5 == 0
-      'Bar'
-    else
-      ''
-    end
-  end
-
-  def multiple_by_7
-    if digit % 7 == 0
-      'Qix'
+  def multiple_by_(number, res)
+    if digit % number == 0
+      res
     else
       ''
     end
