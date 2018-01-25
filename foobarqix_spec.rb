@@ -60,11 +60,19 @@ RSpec.describe FooBarQix do
       end
     end
 
-    context 'when it get a number which contains 3' do
+    context 'when it gets a number which contains 3' do
       subject { instance.calculator(13) }
 
       it 'returns Foo' do
         expect(subject).to eql('Foo')
+      end
+    end
+
+    context 'when it gets a number which contains 5' do
+      subject { instance.calculator(52) }
+
+      it 'returns Bar' do
+        expect(subject).to eql('Bar')
       end
     end
   end
