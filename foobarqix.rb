@@ -20,9 +20,15 @@ class FooBarQix
   end
 
   def can_calculate?
-    multiple?(3) || include_number?('3') ||
-    include_number?('5') || include_number?('7') ||
-    multiple?(5) || multiple?(7)
+    multiples?|| included?
+  end
+
+  def multiples?
+    multiple?(3) || multiple?(5) || multiple?(7)
+  end
+
+  def included?
+    include_number?('3') || include_number?('5') || include_number?('7')
   end
 
   def multiple?(number)
@@ -34,21 +40,28 @@ class FooBarQix
   end
 
   def calculate
-    multiple_by_(3,'Foo') + multiple_by_(5,'Bar') + multiple_by_(7,'Qix') +
+    multiplied + includes
+  end
+
+  def multiplied
+    multiple_by_(3,'Foo') + multiple_by_(5,'Bar') + multiple_by_(7,'Qix')
+  end
+
+  def includes
     include_('3','Foo') + include_('5', 'Bar') + include_('7', 'Qix')
   end
 
   def include_(number, string)
-    if string_digit.include?(number)
-      string_digit.split('').inject('') do |res, x|
-        if x == number
-          res = res + string
-        else
-          res = res + ''
-        end
+    the_result(number, string) || ''
+  end
+
+  def the_result(number, string)
+    string_digit.split('').inject('') do |res, x|
+      if x == number
+        res = res + string
+      else
+        res = res + ''
       end
-    else
-      ''
     end
   end
 
