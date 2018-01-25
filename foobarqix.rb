@@ -33,8 +33,8 @@ class FooBarQix
 
   def include_5
     if digit.to_s.include?('5')
-      digit.each do |x|
-        if x == 5
+      digit.to_s.split('').inject(0) do |res, x|
+        if x == '5'
           'Bar'
         else
           ''
@@ -47,7 +47,7 @@ class FooBarQix
 
   def include_7
     if digit.to_s.include?('7')
-      digit.to_s.split('').inject('') do |res, x|
+      digit.to_s.split('').inject(0) do |res, x|
         if x == '7'
           'Qix'
         else
