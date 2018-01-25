@@ -1,6 +1,6 @@
 class FooBarQix
   def calculator(digit)
-    if digit % 3 == 0
+    if digit % 3 == 0 || digit.to_s.include?('3')
       'Foo'
     elsif digit % 5 == 0
       'Bar'

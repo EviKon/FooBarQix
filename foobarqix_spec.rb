@@ -59,5 +59,13 @@ RSpec.describe FooBarQix do
         expect(subject).to eql('Qix')
       end
     end
+
+    context 'when it get a number which contains 3' do
+      subject { instance.calculator(13) }
+
+      it 'returns Foo' do
+        expect(subject).to eql('Foo')
+      end
+    end
   end
 end
